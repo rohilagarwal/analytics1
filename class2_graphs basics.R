@@ -4,19 +4,23 @@
 #plot
 women
 plot(women)
-plot(women, type='p', pch=15, col='red')
+?plot
+plot(women, type='p', pch=11, col='red') #type ='p' points, 'l' lines , 'b' both points and line
+#pch types of designs
 plot(women, type='l')
 plot(women, type='b')
 plot(women, type='b', pch=18, lty=2, col=2)
-plot(women, xlim=c(30,100), ylim=c(min(women$weight)-10, 200), pch=10)
+plot(women, xlim=c(30,100), ylim=c(min(women$weight)-10, 200), pch=10) #xlim, ylim - giving limits to the x and y axis
 
 #more features with plot
-plot(x=women$weight, y=women$height, pch=15, xlab='Weight', ylab='Height', col='red', cex=2, type='b')
+plot(x=women$weight, y=women$height, pch=15, xlab='Weight', ylab='Height', col='red', cex=2, type='b') #xlab, ylab to give forcefully change the title of x and y-axes. cex is to make the points wide
 title(main='Main Title', sub='Sub Title')
+
 #see cheat sheet on base graphs
 
 plot(women)
-abline(lm(women$weight ~ women$height), col='red', lty=2, lwd=4)
+abline(lm(women$weight ~ women$height), col='red', lty=2, lwd=4) 
+#ablline is to draw line. lm (linear model) will give best fit line
 
 
 #boxplot
@@ -43,6 +47,7 @@ hist(women$height, breaks=5, col=1:5)
 hist(x)
 
 hist(x, freq=F, col=1:5)
+density(x)
 lines(density(x))
 
 #density plot : shape of data
@@ -59,7 +64,9 @@ x/sum(x)
 (labels2 = paste(xlabels, round(x/sum(x),2) * 100 , sep='-'))
 pie(x, labels=labels2)
 x
+
 #barplot
+x
 barplot(x,col=1:4)
 barplot(x,col=1:4, horiz = T)
 
