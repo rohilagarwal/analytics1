@@ -11,6 +11,8 @@ read1 = read.csv(file="./data/iris.csv", header = TRUE,sep = ",")
 read1 = read.csv(file="./data/batch12.csv", header = TRUE,sep = ",")
 #importing file into R (first we saved excel as ' save as' in csv format and then imported with above command)
 # sep = ',' is [putting comma in between the columns
+
+read2 = read.csv(file = file.choose()) #to get the pop up to select the file to import directly
 str(read1)
 class(read1)
 head(read1)
