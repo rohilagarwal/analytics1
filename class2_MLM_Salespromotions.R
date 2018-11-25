@@ -25,10 +25,11 @@ omni = omni1
 head(omni)
 str(omni)
 nrow(omni)
+ncol(omni)
 dim(omni)
 #MLR  Create Multiple Linear Regression
 # we want to see how Sales Qty depend on Price and Promotion Values
-fit2 = lm(sales ~ price + promotion, data=omni)
+fit2 = lm(sales ~ price + promotion, data=omni) #for SLR, we did only sales~price but for MLR you add another independent variable by +
 
 # summary statistics of model IMP STEP
 summary(fit2)
@@ -56,6 +57,7 @@ summary(fit2)
 
 #create a dataframe of new sample values
 range(omni$price) ; range(omni$promotion)
+
 (ndata2 = data.frame(price=c(60,70), promotion=c(300,400)))
 p2sales = predict(fit2, newdata=ndata2)
 cbind(ndata2, p2sales)
