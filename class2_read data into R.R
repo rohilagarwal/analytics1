@@ -12,12 +12,12 @@ read1 = read.csv(file="./data/batch12.csv", header = TRUE,sep = ",")
 #importing file into R (first we saved excel as ' save as' in csv format and then imported with above command)
 # sep = ',' is [putting comma in between the columns
 
-read2 = read.csv(file = file.choose()) #to get the pop up to select the file to import directly
 str(read1)
 class(read1)
 head(read1)
 read2 = read.table(file="./data/iris.csv", header = TRUE,sep = ",")
-str(read2); class(read2)
+str(read2)
+class(read2)
 head(read2)
 read3 = read.delim(file="./data/iris.csv", header = TRUE,sep = ",")
 str(read3) ; class(read3)
@@ -42,16 +42,22 @@ read_txt = read.table("https://s3.amazonaws.com/assets.datacamp.com/blog_assets/
 head(read_txt)
 
 #Google Sheets-----
+library(gsheet) #install it
+install.packages('gsheet')
 library(gsheet)
 url_gsheet = "https://docs.google.com/spreadsheets/d/1QogGSuEab5SZyZIw1Q8h-0yrBNs1Z_eEBJG7oRESW5k/edit#gid=107865534"
 df_gsheet = as.data.frame(gsheet2tbl(url_gsheet))
+?gsheet2tbl
 head(df_gsheet)
 
 #Excel----
 #Create a excel file with data in 2 sheets
 # first row contains variable names
+Sys.setenv(java_home = 'C:\\program file\\') #set environement for java
 library(xlsx)
-df_excel1 = read.xlsx( "./data/myexcel.xlsx", 1)
+install.packages("xlsx")
+library(xlsx)
+df_excel1 = read.xlsx( "./data/myexcel.xlsx", 1) # using '1' or '2' or '3' ... will give an access directly to the different data sheet within a signle excel
 df_excel1
 # read in the worksheet named mysheet
 df_excel2a = read.xlsx("./data/myexcel.xlsx", sheetName = "bowlers")
