@@ -87,3 +87,8 @@ sum(is.na(df2))
 
 #reading file from computer
 df<- read.csv(file.choose())
+
+
+library(mice)
+
+
