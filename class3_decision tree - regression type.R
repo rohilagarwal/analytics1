@@ -13,6 +13,7 @@ names(Carseats)
 
 #Libraries for Decision Tree
 library(rpart)
+#rpart creates only binary split i.e. into 2 nodes only
 ?rpart
 install.packages("rpart.plot")
 library(rpart.plot)
