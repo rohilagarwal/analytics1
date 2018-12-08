@@ -58,6 +58,29 @@ df1 %>% arrange(desc(sname)) %>% select(sname, marks)
 df1 %>% sample_n(3) # any 3 entries
 df1 %>% sample_frac(.3) # any 30% entries
 
+#enter 5 missing values on random location in marks column
+df1[sample(1:30, size = 5), 2] = NA
+df1
+sum(complete.cases(df1))
+sum(!complete.cases(df1))
+
+df1[complete.cases(df1),]
+df1[!complete.cases(df1),]
+
+#now assign 99 to all the missing values
+df1[!complete.cases(df1),2] = 99
+df1
+
+#assign mean to all the missing values
+df1[!complete.cases(df1),2] = mean(df1$marks, na.rm = T)
+df1
+
+#store only rows with data in new data
+df2 <- df1[complete.cases(df1),]
+sum(is.na(df1)) #to give nos. of row with missing value in initial data frame
+sum(is.na(df2))
+
+
 # linear progression
 
 # logistic progression
