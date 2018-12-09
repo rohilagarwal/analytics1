@@ -1,5 +1,6 @@
 #Optimal Number of Clusters in data
 #Reduce total within ss
+
 iris
 head(iris)
 table(iris$Species)
