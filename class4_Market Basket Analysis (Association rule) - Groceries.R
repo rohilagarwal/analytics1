@@ -37,7 +37,7 @@ inspect(subset(canned_rules, subset=lhs %ain% c("liquor", "red/blush wine") & rh
 #either side lhs or rhs
 #“whole milk” and “yogurt” must be present and rule’s confidence must be higher than .95
 #subset3----
-inspect(subset(rules, subset=items %ain% c("whole milk","yogurt") & confidence >.95))
+inspect(subset(rules, subset=items %ain% c("whole milk","yogurt") & confidence >.95)) # on either side i.e. lhs or rhs
 
 #whole milk” and “yogurt” must be present in lhs and rule’s confidence must be higher than .9
 inspect(subset(rules, subset=lhs %ain% c("whole milk","yogurt") & confidence >.9))
@@ -45,7 +45,7 @@ inspect(subset(rules, subset=lhs %ain% c("whole milk","yogurt") & confidence >.9
 #Subset4----
 #“Bread” must be present in lhs: any type of “bread” – “white bread”, “brown bread” – both qualify. “Whole milk” must be present in rhs “as is”. confidence of the rule must be higher than .9
 
-inspect(subset(rules, subset= lhs %pin% "bread" & rhs %in% "whole milk" & confidence > .9))
+inspect(subset(rules, subset= lhs %pin% "bread" & rhs %in% "whole milk" & confidence > .9)) # %pin% will help in picking letters in a word
 
 
 #Subset5----
@@ -62,6 +62,7 @@ rules <- apriori(Groceries,  parameter = list(support=.001, conf = .01, minlen=2
 inspect(subset(rules, lhs %pin% 'beer' & rhs %pin% 'beer'))
 
 crossTable(Groceries)['canned beer','bottled beer']
+?crossTable
 
 #the probability of a consecutive purchase (confidence) is pretty small: ~3%
 #this is despite both bottled beer and canned beer being pretty popular purchases
